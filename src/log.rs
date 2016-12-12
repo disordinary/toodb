@@ -27,7 +27,7 @@ pub struct Item {
 }
 
 pub struct Log {
-    file: fs::File,
+    file: Box<fs::File>
 }
 
 impl Log {
@@ -37,8 +37,9 @@ impl Log {
         option.write(false);
         option.append(true);
         option.create(true);
+
         Log {
-            file: option.open(file_name).unwrap(),
+            file: Box::new(option.open(file_name).unwrap()),
         }
     }
 
@@ -65,52 +66,24 @@ impl Log {
 
     pub fn read(&mut self) {
         let mut buf = BufReader::new(&mut self.file);
-        let mut buffer = vec![0; 4];
-        buf.read(&mut buffer);
+
+        for i in 0..4 {
+            let size = Log::_read(&mut buf, 4).parse::<usize>().unwrap();
+            let result = Log::_read(&mut buf, size);
+            println!("{:?}", result);
+        }
+    }
+    fn _read(buf: &mut BufReader<&mut Box<fs::File>>, size: usize) -> String {
+        let mut buffers = vec![0; size];
+        buf.read(&mut buffers);
 
         let result: &str;
 
         unsafe {
-            result = str::from_utf8_unchecked(&buffer);
+            result = str::from_utf8_unchecked(&buffers);
         }
-        let size = result.parse::<usize>().unwrap();
-        let mut buffers = vec![0; size];
-        buf.read(&mut buffers);
+        result.to_string()
 
-        let results: &str;
-
-        unsafe {
-            results = str::from_utf8_unchecked(&buffers);
-        }
-        println!("{:?}",results);
-
-       // self._read(3);
-//        let my_int = size.parse::<usize>().unwrap();
-//
-//        println!("{:?}",my_int);
-//
-//        let x = self._read(2);
-//        println!("{:?}",x);
     }
-
-//    pub fn _read>(&mut self, size: usize) -> String {
-//        return "TEST".to_string();
-//    }
-//    fn _read<R: Read>(&self, mut buf: R, size: usize) -> String {
-//
-//        //let mut buffer: [u8; size] = [0;size];
-//        // let mut buffer = Vec::with_capacity(size);
-//        let mut buffer = vec![0; size];
-//        buf.read(&mut buffer);
-//        let result: &str;
-//
-//        unsafe {
-//            result = str::from_utf8_unchecked(&buffer);
-//        }
-//
-//         println!("{:?}",result);
-//
-//        result.to_string()
-//    }
-
 }
+
