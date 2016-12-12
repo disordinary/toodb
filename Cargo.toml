@@ -4,4 +4,6 @@ version = "0.1.0"
 authors = ["Ryan McCarvill <ryan@disordinary.com>"]
 
 [dependencies]
-byteorder = "0.4.2"
+serde = "0.8"
+serde_json = "0.8"
+serde_derive = "0.8"
