@@ -1,4 +1,6 @@
 #![feature(proc_macro)]
+#![feature(plugin)]
+#![plugin(clippy)]
 
 #[macro_use]
 extern crate serde_derive;

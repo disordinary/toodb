@@ -2,9 +2,32 @@
 name = "toodb"
 version = "0.1.0"
 dependencies = [
+ "clippy 0.0.103 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde 0.8.19 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde_derive 0.8.19 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde_json 0.8.4 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "clippy"
+version = "0.0.103"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "clippy_lints 0.0.103 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "clippy_lints"
+version = "0.0.103"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "matches 0.1.4 (registry+https://github.com/rust-lang/crates.io-index)",
+ "quine-mc_cluskey 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)",
+ "regex-syntax 0.3.9 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc-serialize 0.3.22 (registry+https://github.com/rust-lang/crates.io-index)",
+ "semver 0.2.3 (registry+https://github.com/rust-lang/crates.io-index)",
+ "toml 0.1.30 (registry+https://github.com/rust-lang/crates.io-index)",
+ "unicode-normalization 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -18,14 +41,47 @@ version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
+name = "matches"
+version = "0.1.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "nom"
+version = "1.2.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
 name = "num-traits"
 version = "0.1.36"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "quine-mc_cluskey"
+version = "0.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "quote"
 version = "0.3.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "regex-syntax"
+version = "0.3.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "rustc-serialize"
+version = "0.3.22"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "semver"
+version = "0.2.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "nom 1.2.4 (registry+https://github.com/rust-lang/crates.io-index)",
+]
 
 [[package]]
 name = "serde"
@@ -79,19 +135,42 @@ dependencies = [
 ]
 
 [[package]]
+name = "toml"
+version = "0.1.30"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "rustc-serialize 0.3.22 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "unicode-normalization"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
 name = "unicode-xid"
 version = "0.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [metadata]
+"checksum clippy 0.0.103 (registry+https://github.com/rust-lang/crates.io-index)" = "5b4fabf979ddf6419a313c1c0ada4a5b95cfd2049c56e8418d622d27b4b6ff32"
+"checksum clippy_lints 0.0.103 (registry+https://github.com/rust-lang/crates.io-index)" = "ce96ec05bfe018a0d5d43da115e54850ea2217981ff0f2e462780ab9d594651a"
 "checksum dtoa 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "0dd841b58510c9618291ffa448da2e4e0f699d984d436122372f446dae62263d"
 "checksum itoa 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "ae3088ea4baeceb0284ee9eea42f591226e6beaecf65373e41b38d95a1b8e7a1"
+"checksum matches 0.1.4 (registry+https://github.com/rust-lang/crates.io-index)" = "efd7622e3022e1a6eaa602c4cea8912254e5582c9c692e9167714182244801b1"
+"checksum nom 1.2.4 (registry+https://github.com/rust-lang/crates.io-index)" = "a5b8c256fd9471521bcb84c3cdba98921497f1a331cbc15b8030fc63b82050ce"
 "checksum num-traits 0.1.36 (registry+https://github.com/rust-lang/crates.io-index)" = "a16a42856a256b39c6d3484f097f6713e14feacd9bfb02290917904fae46c81c"
+"checksum quine-mc_cluskey 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)" = "07589615d719a60c8dd8a4622e7946465dfef20d1a428f969e3443e7386d5f45"
 "checksum quote 0.3.10 (registry+https://github.com/rust-lang/crates.io-index)" = "6732e32663c9c271bfc7c1823486b471f18c47a2dbf87c066897b7b51afc83be"
+"checksum regex-syntax 0.3.9 (registry+https://github.com/rust-lang/crates.io-index)" = "f9ec002c35e86791825ed294b50008eea9ddfc8def4420124fbc6b08db834957"
+"checksum rustc-serialize 0.3.22 (registry+https://github.com/rust-lang/crates.io-index)" = "237546c689f20bb44980270c73c3b9edd0891c1be49cc1274406134a66d3957b"
+"checksum semver 0.2.3 (registry+https://github.com/rust-lang/crates.io-index)" = "2d5b7638a1f03815d94e88cb3b3c08e87f0db4d683ef499d1836aaf70a45623f"
 "checksum serde 0.8.19 (registry+https://github.com/rust-lang/crates.io-index)" = "58a19c0871c298847e6b68318484685cd51fa5478c0c905095647540031356e5"
 "checksum serde_codegen 0.8.19 (registry+https://github.com/rust-lang/crates.io-index)" = "ce29a6ae259579707650ec292199b5fed2c0b8e2a4bdc994452d24d1bcf2242a"
 "checksum serde_codegen_internals 0.11.1 (registry+https://github.com/rust-lang/crates.io-index)" = "59933a62554548c690d2673c5164f0c4a46be7c5731edfd94b0ecb1048940732"
 "checksum serde_derive 0.8.19 (registry+https://github.com/rust-lang/crates.io-index)" = "a4b541549c4207d3602c9abcc3e31252e91751674264eb85c103bb20197054b4"
 "checksum serde_json 0.8.4 (registry+https://github.com/rust-lang/crates.io-index)" = "3f7d3c184d35801fb8b32b46a7d58d57dbcc150b0eb2b46a1eb79645e8ecfd5b"
 "checksum syn 0.10.3 (registry+https://github.com/rust-lang/crates.io-index)" = "94e7d81ecd16d39f16193af05b8d5a0111b9d8d2f3f78f31760f327a247da777"
+"checksum toml 0.1.30 (registry+https://github.com/rust-lang/crates.io-index)" = "0590d72182e50e879c4da3b11c6488dae18fccb1ae0c7a3eda18e16795844796"
+"checksum unicode-normalization 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)" = "26643a2f83bac55f1976fb716c10234485f9202dcd65cfbdf9da49867b271172"
 "checksum unicode-xid 0.0.3 (registry+https://github.com/rust-lang/crates.io-index)" = "36dff09cafb4ec7c8cf0023eb0b686cb6ce65499116a12201c9e11840ca01beb"

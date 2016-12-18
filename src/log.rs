@@ -27,7 +27,8 @@ pub struct Item {
 }
 
 pub struct Log {
-    file: Box<fs::File>
+    file: Box<fs::File>,
+  //  current: Vec<str>,
 }
 
 impl Log {
@@ -67,8 +68,9 @@ impl Log {
     pub fn read(&mut self) {
         let mut buf = BufReader::new(&mut self.file);
 
-        for i in 0..4 {
-            let size = Log::_read(&mut buf, 4).parse::<usize>().unwrap();
+        for i in 0..400 {
+            let size_str = Log::_read(&mut buf, 4);
+            let size = size_str.parse::<usize>().unwrap();
             let result = Log::_read(&mut buf, size);
             println!("{:?}", result);
         }
